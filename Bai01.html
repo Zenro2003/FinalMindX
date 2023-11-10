@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>Nhập vào hai số a và b a bé hơn b </h1>
+
+        <p>a: <span><input type="number"></span></p>
+        <p>b: <span><input type="number"></span></p>
+        <button onclick="TinhTong()">Tính tổng các số nguyên tố</button>
+        <p id="ketqua"></p>
+    </div>
+    <script>
+        function TinhTong() {
+            const a = document.querySelector('[type="number"]').value;
+            const b = document.querySelectorAll('[type="number"]')[1].value;
+
+            function isPrimeNumber(num) {
+                for (let i = 2; i < num; i++)
+                    if (num % i === 0) {
+                        return false;
+                    }
+                return num > 1;
+            }
+            if (a > b) {
+                alert("a phải bé hơn b")
+            }
+            else {
+                let ketqua = 0;
+                for (let i = a; i <= b; i++) {
+                    if (isPrimeNumber(i)) {
+                        ketqua += i;
+                    }
+                }
+                document.getElementById("ketqua").innerHTML = "Kết quả: " + ketqua;
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
